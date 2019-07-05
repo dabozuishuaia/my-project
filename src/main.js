@@ -12,14 +12,17 @@ import '@/assets/css/index.css'
 // vuex依赖es6-peomise，在此之前引入
 import 'es6-promise/auto'
 // 引入vuex
+import moment from 'moment'
 import Vuex from 'vuex'
 import App from './App'
 import router from './router'
+import store from './store/index' // 引入store注入到子组件中
+// 引入moment.js文件
 // 引入vuexstore仓库
-import Store from './store/index'
 Vue.use(ElementUI)
 // 全局调用vuex
 Vue.use(Vuex)
+Vue.prototype.$moment = moment
 
 Vue.config.productionTip = false
 
@@ -27,7 +30,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  Store,
+  store,
   components: { App },
   template: '<App/>'
 })
